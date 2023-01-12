@@ -4,22 +4,6 @@
 
 A utility library to download svg and attribute data for CyberBrokers (from the Ethereum Blockchain)
 
-
-## Basic Usage
-
-### loadBroker
-
-Load data about a broker (Promise based)
-
-```jsx
-  import { loadBroker } from "cb-connect";
-
-  const myFunction = async () => {
-    const brokerID = 1000;
-    const brokerData = await loadBroker(brokerID, provider);
-  };
-```
-
 ## Installation
 
 Using npm:
