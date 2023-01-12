@@ -76,6 +76,40 @@ takes the svg layers object from loadBroker and turns it into a complete SVG str
     const svgString = buildSVGString(broker.layers);
   };
 ```
+
+## Example
+
+An example of using the library to display an SVG in a React App
+
+```jsx
+  import React, { useState, useEffect } from "react";
+  import { loadBroker, buildSVGString } from "cb-connect";
+
+  const SelectedCB = () => {
+    const [svg, setSvg] = useState();
+
+    useEffect(() => {
+      loadSVG();
+    }, []);
+
+    const loadSVG = asyc () => {
+      const brokerID = 1000;
+      const brokerData = await loadBroker(brokerID);
+      const brokerSVG = buildSVGString(brokerData.layers);
+      setSvg(brokerSVG);
+    };
+    
+    return (
+      <div
+        dangerouslySetInnerHTML={{ __html: svg }}
+      />
+    );
+  };
+
+export SelectedCB;
+
+```
+
 ## Contributing
 
 Contributions are always welcome! For any help, please contact me at samalotmedia@gmail.com
