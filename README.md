@@ -42,10 +42,10 @@ Input:
 
 ```jsx
   import { loadBroker } from "cb-connect";
+  const BROKER_ID = 1000;
 
   const myFunction = async () => {
-    const brokerID = 1000;
-    const brokerData = await loadBroker(brokerID, provider);
+    const brokerData = await loadBroker(BROKER_ID, provider);
   };
 ```
 
@@ -81,35 +81,13 @@ takes the svg layers object from loadBroker and turns it into a complete SVG str
 
 ```jsx
   import { loadBroker } from "cb-connect";
+  const BROKER_ID = 1000;
 
-  const [svg, setSVG] = useState("");
-
-  const getSVG = () => {
-    const brokerID = 1000;
-    const brokerData = await loadBroker(brokerID, provider);
-    const svgData = buildSVGString(broker.layers);
-    setSVG(svgData);
+  const myFunction = async () => {
+    const brokerData = await loadBroker(BROKER_ID, provider);
+    const svgString = buildSVGString(broker.layers);
   };
-
-  ...
-
-  <div
-    dangerouslySetInnerHTML={{ __html:svg }}
-  />
-
-
 ```
 ## Contributing
 
 Contributions are always welcome! For any help, please contact me at samalotmedia@gmail.com
-
-Load data about a broker (Promise based)
-
-```jsx
-  import { loadBroker } from "cb-connect";
-
-  const myFunction = async () => {
-    const brokerID = 1000;
-    const brokerData = await loadBroker(brokerID, provider);
-  };
-```
