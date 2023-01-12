@@ -4,23 +4,6 @@
 
 A utility library to download svg and attribute data for CyberBrokers (from the Ethereum Blockchain)
 
-## Installing
-
-Using npm:
-
-```bash
-$ npm install cb-connect
-```
-
-## Basic Usage
-
-### loadBroker
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-# cb-connect
-
-A utility library to download svg and attribute data for CyberBrokers (from the Ethereum Blockchain)
-
 
 ## Basic Usage
 
