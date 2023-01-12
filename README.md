@@ -4,6 +4,10 @@
 
 A utility library to download svg and attribute data for CyberBrokers (from the Ethereum Blockchain)
 
+## Dependencies
+
+- ethers.js
+
 ## Installation
 
 Using npm:
