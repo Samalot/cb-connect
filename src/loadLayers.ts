@@ -4,17 +4,12 @@ import * as metadataABI from "./resources/abi/metadata.json";
 
 const metadataAddress = "0xec3e38e536ad4fa55a378b14b257976148b618ac";
 
-interface result {
-  mind: number,
-  body: number,
-  soul: number
-}
 
-export const loadSkills = async (
+export const loadLayers = async (
   brokerID: number,
   provider?: any,
   contractAddress = metadataAddress
-): Promise<result> => {
+): Promise<any> => {
   const providerOrDefault = provider || getProvider();
 
   if (!providerOrDefault) {
@@ -26,11 +21,5 @@ export const loadSkills = async (
   }
 
   const cyberBrokersMetadata = new ethers.Contract(contractAddress, metadataABI, providerOrDefault);
-  const stats = await cyberBrokersMetadata.getStats(brokerID);
-
-  return {
-    body: parseInt(stats[1]._hex, 16),
-    mind: parseInt(stats[0]._hex, 16),
-    soul: parseInt(stats[2]._hex, 16)
-  };
+  return await cyberBrokersMetadata.getLayers(brokerID);
 };

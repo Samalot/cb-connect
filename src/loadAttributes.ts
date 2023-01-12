@@ -5,12 +5,12 @@ import * as metadataABI from "./resources/abi/metadata.json";
 const metadataAddress = "0xec3e38e536ad4fa55a378b14b257976148b618ac";
 
 interface result {
-  mind: number,
-  body: number,
-  soul: number
+  talent: string,
+  species: string,
+  className: string
 }
 
-export const loadSkills = async (
+export const loadAttributes = async (
   brokerID: number,
   provider?: any,
   contractAddress = metadataAddress
@@ -26,11 +26,15 @@ export const loadSkills = async (
   }
 
   const cyberBrokersMetadata = new ethers.Contract(contractAddress, metadataABI, providerOrDefault);
-  const stats = await cyberBrokersMetadata.getStats(brokerID);
+  const attributesRaw = await cyberBrokersMetadata.getTalentAttributes(brokerID);
+
+  const talent = attributesRaw.match(/{"trait_type": "Talent", "value": ".*?\"}/g)[0];
+  const species = attributesRaw.match(/{"trait_type": "Species", "value": ".*?\"}/g)[0];
+  const className = attributesRaw.match(/{"trait_type": "Class", "value": ".*?\"}/g)[0];
 
   return {
-    body: parseInt(stats[1]._hex, 16),
-    mind: parseInt(stats[0]._hex, 16),
-    soul: parseInt(stats[2]._hex, 16)
+    talent: talent.substring(35, talent.length - 2),
+    species: species.substring(36, species.length - 2),
+    className: className.substring(34, className.length - 2)
   };
 };

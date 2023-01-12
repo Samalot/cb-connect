@@ -1,6 +1,6 @@
 {
   "name": "cb-connect",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A utility library for CyberBrokers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,7 @@
     "/dist"
   ],
   "scripts": {
+    "build": "tsc --project tsconfig.build.json",
     "test": "jest"
   },
   "repository": {
