@@ -85,7 +85,7 @@ An example of using the library to display an SVG in a React App
   import React, { useState, useEffect } from "react";
   import { loadBroker, buildSVGString } from "cb-connect";
 
-  const SelectedCB = () => {
+  const Component = () => {
     const [svg, setSvg] = useState();
 
     useEffect(() => {
@@ -106,7 +106,7 @@ An example of using the library to display an SVG in a React App
     );
   };
 
-export SelectedCB;
+export Component;
 
 ```
 
